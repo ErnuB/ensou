@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'aliens';
+    src: url("/fonts/aliens/aliens.ttf");
+}
+
+@font-face {
+    font-family: 'rampiro';
+    src: url("/fonts/rampiro/Rampiro.otf");
+}
+
+@font-face {
+    font-family: 'acello';
+    src: url("/fonts/acello/Acello.otf");
+}
