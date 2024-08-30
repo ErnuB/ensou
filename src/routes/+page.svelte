@@ -4,6 +4,7 @@
     import Modal from './Modal.svelte';
     import Navbar from './Navbar.svelte';
     import Paralax from "./Paralax.svelte";
+    import Carrusel from "./Carrusel.svelte";
 
     let isModalOpen = false;
     let selectedImageUrl = '';
@@ -74,7 +75,7 @@
         {categoria: "arroces", nombre: "Gohan", descripcion: "Arroz blanco, tampico, res, pollo, aguacate, philadelphia, furikake y cebollín.", precio: "$120", imagen: "/img/gohan.jpg", multi:""},
         {categoria: "arroces", nombre: "Yakimeshi", descripcion: "Arroz frito guisado con calabaza, zanahoria, apio, cebollín, res y pollo, coronado con tampico, philadelphia, aguacate y poro frito.", precio: "$125", imagen: "/img/yakimechi.jpg", multi:""},
         {categoria: "arroces", nombre: "Yakimeshi Ensou", descripcion: "Arroz frito guisado con calabaza, zanahoria, apio, cebollín, res y pollo, coronado con tampico, philadelphia, poro frito, aguacate y boneless BBQ o BÚFALO a elegir.", precio: "$160", imagen: "/img/yakimeshi-ensou.jpg", multi:""},
-        {categoria: "arroces", nombre: "Pollo en Ostión Ensou", descripcion: "Pollo en salsa de ostión con verduras; Cebolla blanca, apio, zanahoria y calabaza, acompañado de arroz blanco.", precio: "$170", imagen: "", multi:""},
+        {categoria: "arroces", nombre: "Pollo en Ostión Ensou", descripcion: "Pollo en salsa de ostión con verduras; Cebolla blanca, apio, zanahoria y calabaza, acompañado de arroz blanco.", precio: "$170", imagen: "/img/pollo-ostion.jpg", multi:""},
         {categoria: "naturales", nombre: "Guamuchilito", descripcion: "Por dentro: Philadelphia, pepino, aguacate, kanikama y camarón. Por fuera: coronado con tampico y aguacate. Rayado con salsa de anguila", precio: "$125", imagen: "/img/guamuchilito.jpg", multi:""},
         {categoria: "naturales", nombre: "Cucum", descripcion: "Rollo de pepino, relleno de tampico, philadelphia, camarón, aguacate y kanikama. Por fuera: Cebollín y mix de ajonjolí.", precio: "$125", imagen: "/img/kukum.jpg", multi:""},
         {categoria: "naturales", nombre: "Avocado", descripcion: "Por dentro: Philadelphia, pepino, aguacate, kanikama forrado de aguacate. Por fuera: Mix de ajonjolí", precio: "$130", imagen: "/img/aguaca.jpg", multi:""},
@@ -90,29 +91,29 @@
         {categoria: "empanizados", nombre: "Karibukai", descripcion: "Por dentro: Philadelphia, pepino, aguacate, camarón y tocino. Por fuera: Topping de chile caribe, soya y togarashi, aderezo Ensou, aderezo sésamo .", precio: "$130", imagen: "/img/karibukai.jpg", multi:""},
         {categoria: "empanizados", nombre: "Ensou especial", descripcion: "Por dentro: Philadelphia, pepino, aguacate, res y pollo. Por fuera: Gratinado con queso, coronado con camarón empanizado, chile serrano, poro frito, furikake. Rayado con salsa durazno chili.", precio: "$160", imagen: "/img/ensou-especial.jpg", multi:""},
         {categoria: "veggie", nombre: "Raito", descripcion: "Rollo natural, por dentro philadelphia, pepino, aguacate y zanahoria. Por fuera: topping de zanahoria spicy, coronado con aguacate, cebollín, mix de ajonjolí y un ligero toque de sriracha.", precio: "$130", imagen: "/img/raito.jpg", multi:""},
-        {categoria: "veggie", nombre: "Yasahī", descripcion: "Rollo natural, por dentro philadelphia, pepino, aguacate y zanahoria. Por fuera: Coronado con tampico y cebolla asada ,chile caribe, mix de ajonjolí y un ligero toque de salsa chile cacahuate.", precio: "$130", imagen: "", multi:""},
-        {categoria: "veggie", nombre: "Unagi", descripcion: "Rollo natural, por dentro philadelphia, pepino, aguacate, camarón. Por fuera: Topping de tampico, anguila de río, mix de ajonjolí. Rayado con mermelada de frutos rojos.", precio: "$160", imagen: "", multi:""},
+        {categoria: "veggie", nombre: "Yasahī", descripcion: "Rollo natural, por dentro philadelphia, pepino, aguacate y zanahoria. Por fuera: Coronado con tampico y cebolla asada ,chile caribe, mix de ajonjolí y un ligero toque de salsa chile cacahuate.", precio: "$130", imagen: "/img/yasahi.jpg", multi:""},
+        {categoria: "veggie", nombre: "Unagi", descripcion: "Rollo natural, por dentro philadelphia, pepino, aguacate, camarón. Por fuera: Topping de tampico, anguila de río, mix de ajonjolí. Rayado con mermelada de frutos rojos.", precio: "$160", imagen: "/img/unagi.jpg", multi:""},
         {categoria: "horneados", nombre: "Chūba", descripcion: "Rollo natural, por dentro: Philadelphia, pepino, aguacate y camarón. Por fuera: Forrado con salmón, con topping de camarón, mezcla de quesos y aderezo spicy. Rayado con aderezo Ensou y un toque de salsa chile cacahuate.", precio: "$175", imagen: "/img/chuba.jpg", multi:""},
         {categoria: "horneados", nombre: "Daburu", descripcion: "Por dentro: Philadelphia, pepino, aguacate y camarón. Por fuera: Forrado de aguacate, con topping de camarón, mezcla de quesos y aderezo spicy. Rayado en salsa de anguila y toque de aderezo Ensou.", precio: "$175", imagen: "/img/daburu.jpg", multi:""},
         {categoria: "horneados", nombre: "Turan", descripcion: "Empanizado, por dentro: Philadelphia, pepino, aguacate, pollo y chile caribe. Por fuera: Topping de camarón, mezcla de quesos y aderezo spicy. Rayado con salsa de anguila, coronado con mix de ajonjolí y cebollín.", precio: "$170", imagen: "/img/turon.jpg", multi:""},
         {categoria: "horneados", nombre: "Furūtu", descripcion: "Por dentro: Philadelphia, pepino y aguacate, Por fuera: Forrado de camarón con topping de kanikama, pulpo y aderezo masago. Encima adereazo de cilantro, cebollín, salsa de anguila y un ligero toque de salsa chile cacahuate.", precio: "$170", imagen: "/img/furutu.jpg", multi:""},
-        {categoria: "horneados", nombre: "Pākass", descripcion: "Por dentro: Philadelphia, pepino y aguacate. Por fuera: Forrado con camarón y salmón, con topping kanikama.", precio: "$160", imagen: "", multi:""},
+        {categoria: "horneados", nombre: "Pākass", descripcion: "Por dentro: Philadelphia, pepino y aguacate. Por fuera: Forrado con camarón y salmón, con topping kanikama.", precio: "$160", imagen: "/img/pakas.jpg", multi:""},
         {categoria: "horneados", nombre: "Chāp", descripcion: "Por dentro: Philadelphia, pepino, aguacate y camarón. Por fuera: Forrado de salmón, con topping de atún, aderezo spicy, salsa de chile y cacahuate. Coronado con poro frito y mix de ajonjolí.", precio: "$175", imagen: "/img/chap.jpg", multi:""},
         {categoria: "horneados", nombre: "Fiduru", descripcion: "Rollo capeado, envuelto en alga, relleno con tampico, pepino, philadelphia, aguacate y camarón. Por fuera: Forrado con mezcla de quesos y salmón, coronado con cebolla capeada y chile serrano. Rayado con salsa de anguila y mermelada de frutos rojos.", precio: "$170", imagen: "/img/fiduru.jpg", multi:""},
-        {categoria: "horneados", nombre: "Crush roll", descripcion: "Rollo capeado, envuelto en algarelleno de philadelphia, pepino, aguacate y salmón. Por fuera: Topping de kanikama y aderezo chipotle. Rayado con salsa de durazno chili y un ligero toque de sriracha.", precio: "$150", imagen: "", multi:""},
+        {categoria: "horneados", nombre: "Crush roll", descripcion: "Rollo capeado, envuelto en algarelleno de philadelphia, pepino, aguacate y salmón. Por fuera: Topping de kanikama y aderezo chipotle. Rayado con salsa de durazno chili y un ligero toque de sriracha.", precio: "$150", imagen: "/img/crush.jpg", multi:""},
         {categoria: "charolas", nombre: "Tomadachi", descripcion: "Mar y Tierra, Camarón Bleu, Chiri - Chiri, Guamuchilito y Daramu.", precio: "$625", imagen: "", multi:""},
         {categoria: "charolas", nombre: "Kuidaore", descripcion: "Cordon Bleu, Avocado, Mar y Tierra Ensou, Biura y Raito.", precio: "$635", imagen: "", multi:""},
         {categoria: "charolas", nombre: "Torai", descripcion: "Daburu, Chiri - Chiri, Furutu, Turan y Bombō", precio: "$810", imagen: "", multi:""},
         {categoria: "especiales", nombre: "Bombō", descripcion: "Camarón empanizado, relleno de philadelphia, pepino, aguacate y camarón. Por fuera: coronado de camarón empanizado. Rayado de aderezo masago, salsa de anguila y aderezo de sésamo,", precio: "$145", imagen: "/img/bombo.jpg", multi:""},
         {categoria: "especiales", nombre: "Gitā", descripcion: "Rollo natural, por dentro: Philadelphia, pepino, aguacate y camarón. Por fuera: Topping de kanikama y camarón empanizado, coronado de chile serrano. Rayado con salsa de anguila y un toque de sriracha", precio: "$160", imagen: "/img/gita.jpg", multi:""},
         {categoria: "especiales", nombre: "Doramu", descripcion: "Por dentro: Philadelphia, pepino y aguacate. Por fuera: Forrado de masago, con topping de camarón empanizado con aderezo spicy. Rayado con aderezo cilantro.", precio: "$125", imagen: "/img/duramu.jpg", multi:""},
-        {categoria: "casa", nombre: "Montūn", descripcion: "Por dentro: Philadelphia, pepino, aguacate y kanikama. Por fuera: Forrado de mix ajonjolí, topping de atún, salmón y aderezo spicy,", precio: "$160", imagen: "", multi:""},
-        {categoria: "casa", nombre: "Taribarin", descripcion: "Empanizado, por dentro: Philadelphia, pepino, aguacate y kanikama. Por fuera: con topping de atún, pulpo, kanikama y aderezo spicy. Encima furikake, cebollín y salsa de anguila.", precio: "$165", imagen: "", multi:""},
+        {categoria: "casa", nombre: "Montūn", descripcion: "Por dentro: Philadelphia, pepino, aguacate y kanikama. Por fuera: Forrado de mix ajonjolí, topping de atún, salmón y aderezo spicy,", precio: "$160", imagen: "/img/montun.jpg", multi:""},
+        {categoria: "casa", nombre: "Taribarin", descripcion: "Empanizado, por dentro: Philadelphia, pepino, aguacate y kanikama. Por fuera: con topping de atún, pulpo, kanikama y aderezo spicy. Encima furikake, cebollín y salsa de anguila.", precio: "$165", imagen: "/img/taribarin.jpg", multi:""},
         {categoria: "casa", nombre: "Kibūdo", descripcion: "Por dentro: Philadelphia, pepino y aguacate. Por fuera: Forrado de aguacate, coronado de camarón frito, tocino, poro frito, aderezo chipotle y aderezo Ensou.", precio: "$160", imagen: "/img/kibudo.jpg", multi:""},
-        {categoria: "casa", nombre: "Biura", descripcion: "Por dentro: Philadelphia, pepino, aguacate y tocino. Por fuera: Gratinado con queso Chihuahua, tocino y res. Encima aderezo chipotle, aderezo cilantro cebollín y ajonjolí.", precio: "$130", imagen: "", multi:""},
+        {categoria: "casa", nombre: "Biura", descripcion: "Por dentro: Philadelphia, pepino, aguacate y tocino. Por fuera: Gratinado con queso Chihuahua, tocino y res. Encima aderezo chipotle, aderezo cilantro cebollín y ajonjolí.", precio: "$130", imagen: "/img/biura.jpg", multi:""},
         {categoria: "casa", nombre: "Kyoku", descripcion: "Por dentro: Philadelphia, pepino, aguacate y camarón. Por fuera: Forrado de anguila de río. Rayado con salsa de anguila y aderezo Ensou.", precio: "$180", imagen: "/img/kyoku.jpg", multi:""},
         {categoria: "casa", nombre: "Merodī", descripcion: "Por dentro: Philadelphia, pepino, aguacate y anguila de río. Por fuera: forrado de atún, masago, furikake, ajonjolí y aderezo cilantro.", precio: "$160", imagen: "/img/merodi.jpg", multi:""},
-        {categoria: "casa", nombre: "Bijine", descripcion: "Empanizado, por dentro: Philadelphia, pepino, aguacate y camarón empanizado. Por fuera: gratinado de queso Chihuahua, res y aderezo spicy. Rayado de aderezo cilantro, aderezo chipotle y coronado con cebollín y furikake.", precio: "$140", imagen: "", multi:""},
+        {categoria: "casa", nombre: "Bijine", descripcion: "Empanizado, por dentro: Philadelphia, pepino, aguacate y camarón empanizado. Por fuera: gratinado de queso Chihuahua, res y aderezo spicy. Rayado de aderezo cilantro, aderezo chipotle y coronado con cebollín y furikake.", precio: "$140", imagen: "/img/bijine.jpg", multi:""},
         {categoria: "casa", nombre: "Aguachile roll", descripcion: "Por dentro: Philadelphia, pepino y aguacate. Por fuera: Coronado de camarón crudo, bañado en clamato preparado y cebollín.", precio: "$150", imagen: "/img/aguachile.jpg", multi:""},
         {categoria: "postres", nombre: "Nieve de vainilla", descripcion: "", precio: "$95", imagen: "/img/nieve.jpg", multi:"no"},
         {categoria: "postres", nombre: "Pastel de chocolate", descripcion: "", precio: "$135", imagen: "/img/pastel.jpg", multi:"no"},
@@ -136,10 +137,10 @@
         {categoria: "cocteleria", nombre: "Orenji", descripcion: "Ron, jugo de piña, jugo de naranja y agua mineral.", precio: "$95", imagen: "/img/orenji.jpg", multi:""},
         {categoria: "cocteleria", nombre: "Mesokaru", descripcion: "Tequila o mezcal, mango y jugo de limón.", precio: "$95", imagen: "/img/mezocaru.jpg", multi:""},
         {categoria: "cocteleria", nombre: "Kadamunu", descripcion: "Tequila o mezcal, Maracuyá, frutos rojos y agua mineral.", precio: "$110", imagen: "/img/kadamunu.jpg", multi:""},
-        {categoria: "cocteleria", nombre: "Kokun", descripcion: "Tequila, crema de coco y jugo de piña.", precio: "$95", imagen: "", multi:""},
+        {categoria: "cocteleria", nombre: "Kokun", descripcion: "Tequila, crema de coco y jugo de piña.", precio: "$95", imagen: "/img/kokun.jpg", multi:""},
         {categoria: "cocteleria", nombre: "Mohīto", descripcion: "Ron, jugo de limón y menta.", precio: "$95", imagen: "/img/mojito.jpg", multi:""},
         {categoria: "cocteleria", nombre: "Berī", descripcion: "Tequila, jugo de limón, frutos rojos, menta y agua mineral.", precio: "$110", imagen: "/img/beri.jpg", multi:""},
-        {categoria: "cocteleria", nombre: "Kyūri", descripcion: "Tequila, jugo de limón, pepino, agua tónica y agua mineral.", precio: "$95", imagen: "", multi:""},
+        {categoria: "cocteleria", nombre: "Kyūri", descripcion: "Tequila, jugo de limón, pepino, agua tónica y agua mineral.", precio: "$95", imagen: "/img/kyuri.jpg", multi:""},
         // {categoria: "cocteleria", nombre: "Jarrito tropi", descripcion: "Tequila, jugo de piña, jugo de limón y agua mineral.", precio: "$0", imagen: "", multi:""},
         {categoria: "cocteleria", nombre: "Jarrito", descripcion: "Tequila, jugo de naranja, jugo de limón y agua mineral.", precio: "$95", imagen: "/img/jarrito.jpg", multi:""},
         {categoria: "cocteleria", nombre: "Jamaka", descripcion: "Tequila, jamaica, chamoy, jugo de limón y agua mineral.", precio: "$95", imagen: "/img/jamaka.jpg", multi:""},
@@ -148,8 +149,8 @@
         {categoria: "cocteleria", nombre: "Carajillo", descripcion: "Licor 43 y expreso de café.", precio: "$120", imagen: "/img/carajillo.jpg", multi:""},
         {categoria: "cocteleria", nombre: "Carajillo de mazapán", descripcion: "Licor 43, expreso de café y mazapán.", precio: "$130", imagen: "/img/carajillo-mazapan.jpg", multi:""},
         {categoria: "cocteleria", nombre: "Sangría", descripcion: "Vino tinto, jugo de limón, frutos rojos y agua mineral.", precio: "$110", imagen: "/img/sangria.jpg", multi:""},
-        {categoria: "cocteleria", nombre: "Aka Mango", descripcion: "Chamoyada, tequila, mango, jugo de limón y chamoy, decorado con dulces enchilosos.", precio: "$120", imagen: "/img/aka-mango.jpg", multi:""},
-        {categoria: "cocteleria", nombre: "Aka Roja", descripcion: "Chamoyada, tequila, frutos rojos, jugo de limón y chamoy, decorado con dulces enchilosos.", precio: "$120", imagen: "", multi:""},
+        {categoria: "cocteleria", nombre: "Aka Mango", descripcion: "Chamoyada, tequila, mango, jugo de limón y chamoy, decorado con dulces enchilosos.", precio: "$120", imagen: "/img/frappe-mango.jpg", multi:""},
+        {categoria: "cocteleria", nombre: "Aka Roja", descripcion: "Chamoyada, tequila, frutos rojos, jugo de limón y chamoy, decorado con dulces enchilosos.", precio: "$120", imagen: "frappe-frutos.jpg", multi:""},
         {categoria: "extras", nombre: "Camarón", descripcion: "", precio: "$25", imagen: "", multi:""},
         {categoria: "extras", nombre: "Pulpo", descripcion: "", precio: "$35", imagen: "", multi:""},
         {categoria: "extras", nombre: "Atún", descripcion: "", precio: "$25", imagen: "", multi:""},
@@ -176,6 +177,7 @@
 <div class="p-1 bg-verde-ensou relative z-10">
     <img src="/img/bg.jpg" alt="Ensou Sushi" class="">
 </div>
+<Carrusel />
 <Navbar />
 <main>
 <Paralax images={parallaxImages} />
@@ -221,14 +223,14 @@
         {/if}
         {:else}
         {#if platillo.multi === "si"}
-        <button on:click={() => openModal(platillo.imagen, platillo.nombre)}  class="text-naranja-ensou text-2xl uppercase font-rampiro mx-2">{platillo.nombre}&thinsp;<span class="material-symbols-outlined text-verde-ensou">
+        <button on:click={() => openModal(platillo.imagen, platillo.nombre)}  class="text-naranja-ensou text-balance text-2xl uppercase font-rampiro mx-2">{platillo.nombre}&thinsp;<span class="material-symbols-outlined text-verde-ensou">
             photo_camera
             </span></button>
         <span class="font-rampiro text-xl text-naranja-ensou">{platillo.precio}</span>
         <p class="text-pretty text-rojo-ensou mx-2 font-rampiro">{platillo.descripcion}</p>
         {:else}
         <div class="ml-1 flex mt-6 text-pretty w-full">
-            <button on:click={() => openModal(platillo.imagen, platillo.nombre)} class="text-verde-ensou text-left uppercase -tracking-[0.75rem] text-6xl font-medium font-singa">{platillo.nombre} &thinsp;<span class="material-symbols-outlined text-verde-ensou">
+            <button on:click={() => openModal(platillo.imagen, platillo.nombre)} class="text-verde-ensou text-balance text-left uppercase -tracking-[0.75rem] text-6xl font-medium font-singa">{platillo.nombre} &thinsp;<span class="material-symbols-outlined text-verde-ensou">
                 photo_camera
                 </span>
             <span class="font-rampiro text-xl text-naranja-ensou tracking-normal">{platillo.precio}</span>
